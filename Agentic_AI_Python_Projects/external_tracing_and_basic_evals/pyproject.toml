@@ -1,0 +1,11 @@
+[project]
+name = "external-tracing-and-basic-evals"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langfuse>=4.6.1",
+    "openai-agents>=0.17.2",
+    "openinference-instrumentation-openai-agents>=1.5.0",
+]

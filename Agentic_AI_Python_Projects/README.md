@@ -6,7 +6,7 @@ A collection of hands-on Python projects demonstrating AI agent development usin
 
 This repository contains practical examples of AI agents built with Python, focusing on the OpenAI Agents SDK and compatible APIs. These projects range from basic agent setups to advanced implementations with tool calling, dynamic instructions, and streaming capabilities.
 
-## Projects
+### Projects
 
 | Project | Description | Key Concepts |
 |---------|-------------|--------------|
@@ -16,10 +16,18 @@ This repository contains practical examples of AI agents built with Python, focu
 | **[searching_tool](searching_tool/)** | Web search enabled agent | Web search integration, information retrieval, real-time data |
 | **[5_dynamic_instruction](5_dynamic_instruction/)** | Dynamic instruction handling | Runtime instruction modification, adaptive behavior, flexible prompting |
 | **[6_streaming](6_streaming/)** | Streaming response agent | Real-time streaming, async execution, progressive responses |
+| **[07_Agent_Clones](07_Agent_Clones/)** | Cloning agents and copies demo | Dataclass copying, shallow vs deep copying, clone config overrides |
+| **[07_basic_tracing](07_basic_tracing/)** | Basic tracing/logging setup | Agent observability, trace inspection, debugging runs |
+| **[08_agentAs_tool](08_agentAs_tool/)** | Nesting agents as tools | Agent-to-agent delegation, orchestration patterns, modular tools |
+| **[08_basic_handsoff](08_basic_handsoff/)** | Routing handoffs between agents | Control handover, multi-agent systems, routing triage |
+| **[agent_memory](agent_memory/)** | Short & long-term agent memory | SQLite sessions, semantic user memory via Mem0, CRUD operations |
+| **[chatbot](chatbot/)** | Web-based chat UI for agents | Chainlit integration, async loop wrapping, user session state |
+| **[external_tracing_and_basic_evals](external_tracing_and_basic_evals/)** | Advanced observability & evals | OpenTelemetry auto-instrumentation, Langfuse traces, custom metadata |
+| **[session_context_engineering](session_context_engineering/)** | DB persistency & context pruning | Neon Postgres connections, SQLAlchemy sessions, sliding window context trimming |
 
 ## Prerequisites
 
-- **Python 3.8+** (Python 3.10+ recommended)
+- **Python 3.10+** (Python 3.10+ recommended)
 - **API Key**: Gemini API key from [Google AI Studio](https://aistudio.google.com/) or OpenAI API key
 - **Package Manager**: `pip` or `uv` (recommended for faster installs)
 
@@ -56,7 +64,7 @@ uv pip install agents python-dotenv
 
 Create a `.env` file in the project directory:
 
-```bash
+```env
 # For Gemini API
 GEMINI_API_KEY=your_gemini_api_key_here
 
@@ -75,7 +83,11 @@ python main.py
 - **OpenAI Agents SDK**: Core framework for building AI agents
 - **Gemini API**: LLM backend (OpenAI-compatible)
 - **Python-dotenv**: Environment variable management
-- **AsyncIO**: Asynchronous execution (for streaming projects)
+- **AsyncIO**: Asynchronous execution (for streaming/async projects)
+- **Langfuse & OpenInference**: Observability and tracing
+- **Chainlit**: Interactive web interface
+- **SQLAlchemy & Neon Postgres**: Persistent relational agent session memory
+- **Mem0**: Semantic long-term user memory
 
 ## Key Concepts Covered
 
@@ -160,27 +172,19 @@ Real-time response generation:
 ```
 Agentic_AI_Python_Projects/
 ├── hello_agent/               # Basic agent setup
-│   ├── main.py
-│   ├── .env.example
-│   ├── .python-version
-│   ├── pyproject.toml
-│   └── README.md
 ├── hello_context/             # Context-aware agent
-│   ├── main.py
-│   ├── .vscode/settings.json
-│   └── ...
 ├── tool_calling/              # Tool-calling agent
-│   ├── main.py
-│   └── ...
 ├── searching_tool/            # Web search agent
-│   ├── main.py
-│   └── ...
 ├── 5_dynamic_instruction/     # Dynamic instructions
-│   ├── main.py
-│   └── ...
 ├── 6_streaming/               # Streaming responses
-│   ├── main.py
-│   └── ...
+├── 07_Agent_Clones/           # Cloning agents
+├── 07_basic_tracing/          # Basic logging & traces
+├── 08_agentAs_tool/           # Delegation (agent as a tool)
+├── 08_basic_handsoff/         # Control transfer (handoffs)
+├── agent_memory/              # SQLite & Mem0 memory
+├── chatbot/                   # Chainlit UI web application
+├── external_tracing_and_basic_evals/  # Langfuse traces & metadata
+├── session_context_engineering/       # SQLAlchemy Postgres persistent memory & sliding turns trimming
 └── README.md                  # This file
 ```
 
@@ -189,14 +193,22 @@ Agentic_AI_Python_Projects/
 ### Beginner
 1. **hello_agent** - Start here to understand basic agent setup
 2. **hello_context** - Learn about conversation memory
+3. **07_Agent_Clones** - Understand copying settings and mutability
+4. **07_basic_tracing** - Inspect your first log trace
 
 ### Intermediate
-3. **tool_calling** - Master custom tool creation
-4. **searching_tool** - Integrate external data sources
+5. **tool_calling** - Master custom tool creation
+6. **searching_tool** - Integrate external data sources
+7. **08_agentAs_tool** - Nest agents to perform subtasks
+8. **08_basic_handsoff** - Transfer conversation between agents
 
 ### Advanced
-5. **5_dynamic_instruction** - Build adaptive agents
-6. **6_streaming** - Implement real-time responses
+9. **5_dynamic_instruction** - Build adaptive agents
+10. **6_streaming** - Implement real-time responses
+11. **agent_memory** - SQL memory & Mem0 semantic memory
+12. **chatbot** - Integrate with Chainlit web client
+13. **external_tracing_and_basic_evals** - Advanced Langfuse tracing
+14. **session_context_engineering** - Custom memory architectures (Postgres, sliding window pruning)
 
 ## Common Patterns
 

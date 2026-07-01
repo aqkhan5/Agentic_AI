@@ -1,6 +1,6 @@
 # Hello Agent
 
-A simple AI agent built with the Anthropic Agents SDK that demonstrates basic agent functionality using Google's Gemini API.
+A simple AI agent built with the **OpenAI Agents SDK** that demonstrates basic agent functionality using Google's Gemini API.
 
 ## Overview
 
@@ -27,7 +27,7 @@ pip install agents python-dotenv
 ```
 
 3. Create a `.env` file in the project root:
-```
+```env
 GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
